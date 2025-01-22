@@ -1,6 +1,29 @@
-[gd_scene load_steps=2 format=3 uid="uid://b1qffdabwqnxf"]
+[gd_scene load_steps=3 format=3 uid="uid://baehqiw8b6oj6"]
 
-[ext_resource type="Theme" uid="uid://dqt6eyc0l8kms" path="res://Theme/WorldSelector.tres" id="1_kkuy1"]
+[ext_resource type="Theme" uid="uid://dqt6eyc0l8kms" path="res://Theme/WorldSelector.tres" id="1_gll88"]
+
+[sub_resource type="GDScript" id="GDScript_6j8k1"]
+script/source = "extends Control
+
+signal audio
+signal back
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+
+func _on_back_button_2_pressed() -> void:
+	back.emit()
+
+
+func _on_audio_pressed() -> void:
+	audio.emit()
+"
 
 [node name="SettingsSelector" type="Control"]
 layout_mode = 3
@@ -9,7 +32,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_kkuy1")
+theme = ExtResource("1_gll88")
+script = SubResource("GDScript_6j8k1")
 
 [node name="Scroll" type="ScrollContainer" parent="."]
 unique_name_in_owner = true
@@ -32,8 +56,7 @@ size_flags_vertical = 3
 [node name="Title" type="Label" parent="Scroll/VBoxContainer"]
 layout_mode = 2
 theme_type_variation = &"HeaderLarge"
-text = "Extra 
-Worlds"
+text = "Settings"
 horizontal_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="Scroll/VBoxContainer"]
@@ -49,10 +72,16 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 2
 
-[node name="BackButton" type="Button" parent="Scroll/VBoxContainer/MarginContainer/ExtraWorldsBox"]
+[node name="Audio" type="Button" parent="Scroll/VBoxContainer/MarginContainer/ExtraWorldsBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Audio"
+
+[node name="BackButton2" type="Button" parent="Scroll/VBoxContainer/MarginContainer/ExtraWorldsBox"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Go Back"
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
-[connection signal="pressed" from="Scroll/VBoxContainer/MarginContainer/ExtraWorldsBox/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="Scroll/VBoxContainer/MarginContainer/ExtraWorldsBox/Audio" to="." method="_on_audio_pressed"]
+[connection signal="pressed" from="Scroll/VBoxContainer/MarginContainer/ExtraWorldsBox/BackButton2" to="." method="_on_back_button_2_pressed"]
