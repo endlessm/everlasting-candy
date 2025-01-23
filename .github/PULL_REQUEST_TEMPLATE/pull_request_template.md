@@ -1,4 +1,4 @@
-<!-- Thanks for opening a pull request! Please fill out the information below. -->
+<!-- Thanks for opening a pull request! Please ensure your title is descriptive and covers the WHAT (like "Worlds: add Cassidy's World" or "Player: Emit signals on contact with goobers"), then fill out the information below to explain the WHY and more details. -->
 
 ## Summary of changes
 <!-- Please describe your changes below; if you're adding a world, include some information about why you designed your levels how you did. -->
