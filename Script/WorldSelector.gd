@@ -1,21 +1,16 @@
 extends Control
 
-var _game := preload("res://Scene/Game.tscn") as PackedScene
-
 @onready var MainWorldSelector = $MainWorldSelector
 @onready var ExtraWorldSelector = $ExtraWorldSelector
 @onready var SettingsSelector = $SettingsSelector
 @onready var AudioSelector = $AudioSelector
 
 func _enter_world(world: String) -> void:
-	global.load_levels(world)
-	global.level = global.firstLevel
-	get_tree().change_scene_to_packed(_game)
-	global.start_music()
+	get_tree().change_scene_to_file(world)
 
 
 func _on_main_world_selected() -> void:
-	_enter_world(global.DEFAULT_WORLD)
+	_enter_world("res://CandyWrapper/World.tscn")
 
 
 func _on_extra_worlds_button_pressed() -> void:
