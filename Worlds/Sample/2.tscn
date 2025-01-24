@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=4 uid="uid://cxa3fo1xhqctg"]
+[gd_scene load_steps=3 format=4 uid="uid://cxa3fo1xhqctg"]
 
 [ext_resource type="TileSet" uid="uid://caem805hxljgn" path="res://CandyWrapper/TileSet.tres" id="1_sr3g6"]
 [ext_resource type="Script" path="res://Script/Level.gd" id="1_we7ho"]
