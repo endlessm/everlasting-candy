@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://byheefdx4lxmx"]
 
-[ext_resource type="Script" uid="uid://c5dx3r1l6mwox" path="res://Script/Goober.gd" id="1"]
+[ext_resource type="Script" path="res://Script/Goober.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://cn5awui7bqekp" path="res://Image/Goober.png" id="2"]
 
 [sub_resource type="RectangleShape2D" id="1"]
