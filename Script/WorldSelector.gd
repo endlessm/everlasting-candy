@@ -28,16 +28,6 @@ func _on_main_world_selector_settings_selected() -> void:
 	SettingsSelector.visible = true
 
 
-func _on_settings_selector_audio() -> void:
-	SettingsSelector.visible = false
-	AudioSelector.visible = true
-
-
 func _on_settings_selector_back() -> void:
 	SettingsSelector.visible = false
 	MainWorldSelector.visible = true
-
-
-func _on_audio_selector_audioback() -> void:
-	AudioSelector.visible = false
-	SettingsSelector.visible = true

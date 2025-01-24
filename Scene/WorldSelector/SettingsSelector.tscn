@@ -1,29 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://baehqiw8b6oj6"]
+[gd_scene load_steps=3 format=3 uid="uid://d2ay7olsehadk"]
 
 [ext_resource type="Theme" uid="uid://dqt6eyc0l8kms" path="res://Theme/WorldSelector.tres" id="1_gll88"]
-
-[sub_resource type="GDScript" id="GDScript_6j8k1"]
-script/source = "extends Control
-
-signal audio
-signal back
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-
-func _on_back_button_2_pressed() -> void:
-	back.emit()
-
-
-func _on_audio_pressed() -> void:
-	audio.emit()
-"
+[ext_resource type="Script" path="res://Script/settingsSelector.gd" id="2_6mi7e"]
 
 [node name="SettingsSelector" type="Control"]
 layout_mode = 3
@@ -33,12 +11,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_gll88")
-script = SubResource("GDScript_6j8k1")
+script = ExtResource("2_6mi7e")
 
 [node name="Scroll" type="ScrollContainer" parent="."]
 unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -72,10 +50,31 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 2
 
-[node name="Audio" type="Button" parent="Scroll/VBoxContainer/MarginContainer/ExtraWorldsBox"]
-unique_name_in_owner = true
+[node name="MusicLabel" type="Label" parent="Scroll/VBoxContainer/MarginContainer/ExtraWorldsBox"]
 layout_mode = 2
-text = "Audio"
+size_flags_horizontal = 0
+theme_type_variation = &"HeaderLarge"
+theme_override_font_sizes/font_size = 9
+text = "music"
+horizontal_alignment = 1
+
+[node name="MusicSlider" type="HSlider" parent="Scroll/VBoxContainer/MarginContainer/ExtraWorldsBox"]
+layout_mode = 2
+min_value = -30.0
+max_value = 0.0
+
+[node name="sfxLabel" type="Label" parent="Scroll/VBoxContainer/MarginContainer/ExtraWorldsBox"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_type_variation = &"HeaderLarge"
+theme_override_font_sizes/font_size = 9
+text = "sfx"
+horizontal_alignment = 1
+
+[node name="sfxSlider" type="HSlider" parent="Scroll/VBoxContainer/MarginContainer/ExtraWorldsBox"]
+layout_mode = 2
+min_value = -30.0
+max_value = 0.0
 
 [node name="BackButton2" type="Button" parent="Scroll/VBoxContainer/MarginContainer/ExtraWorldsBox"]
 unique_name_in_owner = true
@@ -83,5 +82,7 @@ layout_mode = 2
 text = "Go Back"
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
-[connection signal="pressed" from="Scroll/VBoxContainer/MarginContainer/ExtraWorldsBox/Audio" to="." method="_on_audio_pressed"]
+[connection signal="value_changed" from="Scroll/VBoxContainer/MarginContainer/ExtraWorldsBox/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="Scroll/VBoxContainer/MarginContainer/ExtraWorldsBox/sfxSlider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="visibility_changed" from="Scroll/VBoxContainer/MarginContainer/ExtraWorldsBox/sfxSlider" to="." method="_on_sfx_slider_visibility_changed"]
 [connection signal="pressed" from="Scroll/VBoxContainer/MarginContainer/ExtraWorldsBox/BackButton2" to="." method="_on_back_button_2_pressed"]
