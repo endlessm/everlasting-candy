@@ -32,7 +32,7 @@ _data = {
 "Run": SubResource("3")
 }
 
-[node name="Goober" type="CharacterBody2D"]
+[node name="Goober" type="CharacterBody2D" groups=["goober"]]
 z_index = 9
 collision_layer = 4
 script = ExtResource("1")

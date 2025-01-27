@@ -38,6 +38,7 @@ Within each world, contributors are granted creative freedom within the bounds o
  * Level design
  * Visual appearance - the TileSet can be completely reworked to give a new look and feel to the game
  * Start and end screen visual customisation
+ * Audio design - the background music and sounds can be replaced to better match the world's theme
 
 The range of per-world customisation possibilities can be lightly expanded in future, to increase the creativity permitted within the world-building space:
  * The number of customisations and the steps needed to deploy them should be constrained towards novice contributors. It's important that learners can continue to approach this project, recognise and enjoy the simplicity within, to have the feeling that they can easily fit it within their heads, and to not feel overwhelmed.

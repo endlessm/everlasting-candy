@@ -29,6 +29,11 @@ window/size/window_width_override=576
 window/size/window_height_override=576
 window/stretch/mode="canvas_items"
 
+[global_group]
+
+player="The main character controlled by the player"
+goober="Enemies which must all be stomped"
+
 [importer_defaults]
 
 texture={
