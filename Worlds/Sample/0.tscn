@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=4 uid="uid://gvrg6oqw5afm"]
+[gd_scene load_steps=4 format=4 uid="uid://gvrg6oqw5afm"]
 
 [ext_resource type="TileSet" uid="uid://caem805hxljgn" path="res://CandyWrapper/TileSet.tres" id="1_1xfes"]
 [ext_resource type="Script" path="res://Script/Level.gd" id="1_we7ho"]
+[ext_resource type="PackedScene" uid="uid://b17jmr687k1sm" path="res://Scene/Player.tscn" id="3_0j6xj"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_we7ho")
@@ -13,3 +14,7 @@ tile_map_data = PackedByteArray("AAD/////AwAAAAAAAAAAAP//AwAAAAAAAAABAP//AwAAAAA
 tile_set = ExtResource("1_1xfes")
 
 [node name="Goobers" type="Node2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("3_0j6xj")]
+position = Vector2(72, 85)
+script = null
