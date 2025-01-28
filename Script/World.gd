@@ -66,14 +66,15 @@ func _instantiate_level():
 	_level_scene.lose.connect(_on_lose)
 	_candy_spawner.add_sibling(_level_scene)
 
-	if level == firstLevel:
-		NodeOverlay.visible = true
-		NodeOverlay.frame = 0
-	elif level == lastLevel:
-		NodeOverlay.visible = true
-		NodeOverlay.frame = 3
-	else:
-		NodeOverlay.visible = false
+	match _level_scene.level_type:
+		Level.LevelType.TITLE:
+			NodeOverlay.visible = true
+			NodeOverlay.frame = 0
+		Level.LevelType.COMPLETE:
+			NodeOverlay.visible = true
+			NodeOverlay.frame = 3
+		_:
+			NodeOverlay.visible = false
 
 	_candy_spawner.progress = float(level - firstLevel) / (lastLevel - firstLevel)
 
