@@ -84,7 +84,7 @@ func _input(event: InputEvent) -> void:
 		get_tree().change_scene_to_file("res://Scene/WorldSelector.tscn")
 
 func _process(_delta: float):
-	if Input.is_action_just_pressed("jump") and (level == firstLevel or level == lastLevel):
+	if Input.is_action_just_pressed("jump") and _level_scene.level_type != Level.LevelType.NORMAL:
 		level = posmod(level + 1, levels.size())
 		_instantiate_level()
 
