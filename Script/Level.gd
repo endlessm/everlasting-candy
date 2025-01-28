@@ -1,3 +1,4 @@
+@tool
 class_name Level
 extends Node2D
 
@@ -7,7 +8,7 @@ signal lose
 enum LevelType { NORMAL, TITLE, COMPLETE }
 @export var level_type := LevelType.NORMAL
 
-enum {TILE_WALL = 0, TILE_PLAYER = 1, TILE_GOOBER = 2}
+enum {TILE_WALL = 0, TILE_PLAYER = 1, TILE_GOOBER = 2, TILE_EXPLOSION = 3, TILE_ACTORS = 4}
 @onready var Map: TileMapLayer = $Map
 
 var ScenePlayer = load("res://Scene/Player.tscn")
@@ -22,6 +23,9 @@ var check := false
 
 func _ready():
 	MapStart()
+
+	if Engine.is_editor_hint():
+		return
 
 	for player in get_tree().get_nodes_in_group("player"):
 		player.died.connect(_on_died.bind(player))
@@ -45,23 +49,14 @@ func MapStart():
 		var id = Map.get_cell_source_id(pos)
 		match id:
 			TILE_WALL:
-				# Use random wall tile from 3×3 tileset to make levels look less repetitive
-				var atlas = Vector2(randi_range(0, 2), randi_range(0, 2))
-				Map.set_cell(pos, TILE_WALL, atlas)
+				if not Engine.is_editor_hint():
+					# Use random wall tile from 3×3 tileset to make levels look less repetitive
+					var atlas = Vector2(randi_range(0, 2), randi_range(0, 2))
+					Map.set_cell(pos, TILE_WALL, atlas)
 			TILE_PLAYER:
-				# Add live player to the scene
-				var inst = ScenePlayer.instantiate()
-				inst.position = Map.map_to_local(pos) + Vector2(4, 0)
-				self.add_child(inst)
-				# Remove static player tile from the tile map
-				Map.set_cell(pos, -1)
+				Map.set_cell(pos, TILE_ACTORS, Vector2i.ZERO, 1)
 			TILE_GOOBER:
-				# Add live goober to the scene
-				var inst = SceneGoober.instantiate()
-				inst.position = Map.map_to_local(pos) + Vector2(4, 0)
-				NodeGoobers.add_child(inst)
-				# Remove static goober tile from the tile map
-				Map.set_cell(pos, -1)
+				Map.set_cell(pos, TILE_ACTORS, Vector2i.ZERO, 2)
 
 func _process(_delta: float):
 	# should i check?
