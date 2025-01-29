@@ -3,6 +3,11 @@ extends CharacterBody2D
 signal stomped(goober: CharacterBody2D)
 signal died
 
+## If false, the player cannot be moved and does not interact with its
+## environment: it just performs its idle animation, as needed for a title
+## or world-complete level.
+@export var interactive := true
+
 @onready var NodeSprite := $Sprite2D
 @onready var NodeArea2D := $Area2D
 @onready var NodeAudio := $Audio
@@ -18,74 +23,77 @@ var onFloor := false
 var jump := false
 
 func _physics_process(delta):
-    # gravity
-    vel.y += grv * delta
-    vel.y = clamp(vel.y, -termVel, termVel)
-    
-    # horizontal input
-    var btnx = Input.get_axis("left", "right")
-    vel.x = btnx * spd
-    
-    # jump
-    if onFloor:
-        if Input.is_action_just_pressed("jump"):
-            jump = true
-            vel.y = -jumpSpd
-            NodeAudio.play()
-    elif jump:
-        if not Input.is_action_pressed("jump") and vel.y < jumpSpd / -3:
-            jump = false
-            vel.y = jumpSpd / -3
-    
-    # apply movement
-    velocity = vel
-    move_and_slide()
-    position = global.wrapp(position)
-    # check for Goobers
-    var hit = Overlap()
-    if !hit:
-        if velocity.y == 0:
-            vel.y = 0
-        # check for floor 0.1 pixel down
-        onFloor = test_move(transform, Vector2(0, 0.1))
-    
-    # sprite flip
-    if btnx != 0:
-        NodeSprite.flip_h = btnx < 0
-    
-    # animation
-    if onFloor:
-        if btnx == 0:
-            TryLoop("Idle")
-        else:
-            TryLoop("Run")
-    else:
-        TryLoop("Jump")
+	if not interactive:
+		return
+
+	# gravity
+	vel.y += grv * delta
+	vel.y = clamp(vel.y, -termVel, termVel)
+	
+	# horizontal input
+	var btnx = Input.get_axis("left", "right")
+	vel.x = btnx * spd
+	
+	# jump
+	if onFloor:
+		if Input.is_action_just_pressed("jump"):
+			jump = true
+			vel.y = -jumpSpd
+			NodeAudio.play()
+	elif jump:
+		if not Input.is_action_pressed("jump") and vel.y < jumpSpd / -3:
+			jump = false
+			vel.y = jumpSpd / -3
+	
+	# apply movement
+	velocity = vel
+	move_and_slide()
+	position = global.wrapp(position)
+	# check for Goobers
+	var hit = Overlap()
+	if !hit:
+		if velocity.y == 0:
+			vel.y = 0
+		# check for floor 0.1 pixel down
+		onFloor = test_move(transform, Vector2(0, 0.1))
+	
+	# sprite flip
+	if btnx != 0:
+		NodeSprite.flip_h = btnx < 0
+	
+	# animation
+	if onFloor:
+		if btnx == 0:
+			TryLoop("Idle")
+		else:
+			TryLoop("Run")
+	else:
+		TryLoop("Jump")
 
 
 func Overlap():
-    var hit = false
-    
-    for o in NodeArea2D.get_overlapping_areas():
-        var par = o.get_parent()
-        print ("Overlapping: ", par.name)
-        
-        if par is Goober:
-            var above = position.y - 1 < par.position.y
-            
-            if onFloor or (vel.y < 0.0 and !above):
-                died.emit()
-            else:
-                hit = true
-                jump = Input.is_action_pressed("jump")
-                vel.y = -jumpSpd * (1.0 if jump else 0.6)
-                
-                stomped.emit(par)
-    return hit
+	var hit = false
+	
+	for o in NodeArea2D.get_overlapping_areas():
+		var par = o.get_parent()
+		print ("Overlapping: ", par.name)
+		
+		if par is Goober:
+			var above = position.y - 1 < par.position.y
+			
+			if onFloor or (vel.y < 0.0 and !above):
+				died.emit()
+			else:
+				hit = true
+				jump = Input.is_action_pressed("jump")
+				vel.y = -jumpSpd * (1.0 if jump else 0.6)
+				
+				stomped.emit(par)
+	return hit
 
 func TryLoop(arg : String):
-    if arg == NodeAnim.current_animation:
-        return false
-    else:
-        NodeAnim.play(arg)
-        return true
+	if arg == NodeAnim.current_animation:
+		return false
+	else:
+		NodeAnim.play(arg)
+		return true

@@ -16,23 +16,27 @@ var SceneGoober = load("res://Scene/Goober.tscn")
 ## This scene is used when the player or a goober is destroyed.
 @export var explosion_scene := preload("res://Scene/Explosion.tscn")
 
-@onready var NodeGoobers := $Goobers
-
 var check := false
 
 func _ready():
-    if level_type != LevelType.NORMAL:
-        var p = ScenePlayer.instantiate()
-        p.position = Vector2(72, 85)
-        p.scale.x = -1 if randf() < 0.5 else 1
-        p.set_script(null)
-        add_child(p)
-
-    MapStart()
+	MapStart()
 
 	for player in get_tree().get_nodes_in_group("player"):
 		player.died.connect(_on_died.bind(player))
 		player.stomped.connect(_on_stomped)
+
+	# When using a TileSetScenesCollectionSource to place scenes as cells of a
+	# TileMapLayer, adding these to the tree gets batched together with other
+	# TileMapLayer updates at the end of the frame. Monitor changes to the
+	# TileMapLayer's children and connect signals to any players found there.
+	Map.child_entered_tree.connect(_child_entered_tree_cb)
+
+
+func _child_entered_tree_cb(node: Node):
+	if node.is_in_group("player"):
+		node.died.connect(_on_died.bind(node))
+		node.stomped.connect(_on_stomped)
+
 
 func MapStart():
 	for pos in Map.get_used_cells():
@@ -53,7 +57,7 @@ func MapStart():
 				# Add live goober to the scene
 				var inst = SceneGoober.instantiate()
 				inst.position = Map.map_to_local(pos) + Vector2(4, 0)
-				NodeGoobers.add_child(inst)
+				self.add_child(inst)
 				# Remove static goober tile from the tile map
 				Map.set_cell(pos, -1)
 
@@ -73,9 +77,9 @@ func Explode(character: Node2D):
 	character.queue_free()
 
 func _on_died(player: CharacterBody2D):
-    Explode(player)
-    lose.emit()
+	Explode(player)
+	lose.emit()
 
 func _on_stomped(goober: CharacterBody2D):
-    Explode(goober)
-    check = true
+	Explode(goober)
+	check = true

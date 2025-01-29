@@ -10,9 +10,8 @@ Each level should be a numbered scene file, with the following node structure:
 
 - Level (Type: Level)
   - Map (Type: TilemapLayer)
-  - Goobers (Type: Node2D)
 
-The easiest way to create levels is by painting tiles. Select the Map node. The TileMap panel will open at the bottom. Each level should have the player tile in one cell, and one or more “goober” tiles. When the level is played, they will be replaced with the player and goober scenes, offset horizontally by half a tile.
+The easiest way to create levels is by painting tiles. Select the Map node. The TileMap panel will open at the bottom. Each level should have the player tile in one cell, and one or more “goober” tiles. These tiles are scenes that become interactive when the level is played.
 
 The first level in the sequence (typically `0.tscn`) is treated as the start screen. This level is treated specially by the game: the player cannot move, and pressing Jump starts the game proper. Similarly, the final level (typically `999.tscn`) is treated as the end screen.
 
@@ -62,6 +61,20 @@ You will also need to apply your customised `TileSet.tres` to all other levels i
 
 4. Drag `TileSet.tres` over to the `Tile Set` option in the Inspector that you just located.
 
+### Player
+
+1. Copy `TileSet.tres` into your world, and apply it to all levels in your world, as above.
+
+2. Copy `Scene/Player.tscn` into your world's folder.
+
+3. Open your world's `TileSet` and replace the `Player` scene in its `Actors` section with your world's copy of the scene, taking care to keep its ID the same (`1`) as the original.
+
+4. Make any changes you desire to your world's Player scene (such as replacing the sprite in its Sprite2D node with your own edited copy of `Image/Player.png`).
+
+### Goober
+
+Follow the same process as for the `Player`, except for the `Goober` scene.
+
 ### Music
 
 1. Open your world's `World.tscn` file in the Editor's 2D view.
@@ -77,6 +90,16 @@ You will also need to apply your customised `TileSet.tres` to all other levels i
 2. Select the `Win` or `Lose` Audio node from the Scene Dock.
 
 3. Use the Inspector to customise the playback options or to use a different audio file.
+
+### Background
+
+1. Open your world's `World.tscn` file in the Editor's 2D view.
+
+2. Select the `Background` ColorRect node from the Scene Dock.
+
+3. Use the Inspector to customise the Color property under ColorRect.
+
+Note: the background would still look light yellow when editing each level or when playing each level scene in isolation, but it will look as expected when playing the game and selecting your world from the menu.
 
 ## Contributing your world
 
