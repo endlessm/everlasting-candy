@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://31lub63l71ih"]
+
+[ext_resource type="Texture2D" uid="uid://btfn40n148ymy" path="res://Image/Tilemap.png" id="1_my3bn"]
+
+[node name="BreakableBrick" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_my3bn")
+hframes = 3
+vframes = 3
