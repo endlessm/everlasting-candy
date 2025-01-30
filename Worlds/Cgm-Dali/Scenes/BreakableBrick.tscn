@@ -22,6 +22,9 @@ orbit_velocity_max = 0.0840001
 radial_velocity_min = -3.00002
 radial_velocity_max = 380.63
 gravity = Vector3(0, 98, 0)
+scale_min = 0.0
+scale_max = 3.0
+color = Color(0.59317, 0.342973, 0.0499722, 1)
 
 [node name="BreakableBrick" type="Node2D" node_paths=PackedStringArray("particles", "static_body", "area_2d")]
 script = ExtResource("1_ua0un")
