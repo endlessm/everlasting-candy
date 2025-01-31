@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://31omv0fuw2at"]
+
+[ext_resource type="FontFile" uid="uid://2q38bblqh3yd" path="res://Font/Border_Basic.ttf" id="1_ly7p6"]
+[ext_resource type="Script" path="res://Worlds/Cgm-Dali/Scripts/timer.gd" id="2_pc2wc"]
+
+[node name="Timer" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 144.0
+offset_bottom = 144.0
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -42.0
+offset_bottom = 32.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0.643137, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_ly7p6")
+text = "200"
+script = ExtResource("2_pc2wc")
