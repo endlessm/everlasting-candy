@@ -1,6 +1,37 @@
-[gd_scene load_steps=2 format=3 uid="uid://31lub63l71ih"]
+[gd_scene load_steps=7 format=3 uid="uid://31lub63l71ih"]
 
 [ext_resource type="Texture2D" uid="uid://btfn40n148ymy" path="res://Image/Tilemap.png" id="1_my3bn"]
+
+[sub_resource type="Curve" id="Curve_r3s6o"]
+_data = [Vector2(0.646667, 1), 0.0, -0.184615, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_w02ha"]
+curve = SubResource("Curve_r3s6o")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hoxrq"]
+particle_flag_disable_z = true
+angle_min = -278.7
+angle_max = 387.1
+direction = Vector3(10, -1, 0)
+spread = 180.0
+initial_velocity_min = 40.0
+initial_velocity_max = 40.0
+angular_velocity_min = -410.32
+angular_velocity_max = 348.39
+gravity = Vector3(0, 98, 0)
+damping_min = 30.0
+damping_max = 30.0
+scale_min = 0.3
+scale_curve = SubResource("CurveTexture_w02ha")
+
+[sub_resource type="Gradient" id="Gradient_dk6ge"]
+interpolation_mode = 2
+colors = PackedColorArray(0.481958, 0.825952, 0.915485, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jirym"]
+gradient = SubResource("Gradient_dk6ge")
+width = 1
 
 [node name="BreakableBrick" type="Node2D"]
 
@@ -8,3 +39,9 @@
 texture = ExtResource("1_my3bn")
 hframes = 3
 vframes = 3
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+process_material = SubResource("ParticleProcessMaterial_hoxrq")
+texture = SubResource("GradientTexture1D_jirym")
+lifetime = 0.6
+explosiveness = 1.0
