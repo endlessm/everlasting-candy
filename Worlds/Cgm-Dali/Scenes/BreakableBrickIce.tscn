@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3jkhus6bbe05"]
+
+[ext_resource type="Texture2D" uid="uid://bf38djp863jhx" path="res://Worlds/Cgm-Dali/Assets/niceice.png" id="1_o5mee"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3r2ot"]
+size = Vector2(8, 8)
+
+[node name="BreakableBrick" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+texture = ExtResource("1_o5mee")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_3r2ot")
