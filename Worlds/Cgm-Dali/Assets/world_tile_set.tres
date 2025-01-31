@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cboj002ecda55" path="res://Image/Player.png" id="2_dq125"]
 [ext_resource type="Texture2D" uid="uid://cn5awui7bqekp" path="res://Image/Goober.png" id="3_5jlfw"]
 [ext_resource type="Texture2D" uid="uid://d24wavdwab2qx" path="res://Image/Explosion.png" id="4_nsxeg"]
-[ext_resource type="PackedScene" path="res://Worlds/Cgm-Dali/Scenes/BreakableBrick.tscn" id="5_7668t"]
+[ext_resource type="PackedScene" uid="uid://31lub63l71ih" path="res://Worlds/Cgm-Dali/Scenes/BreakableBrick.tscn" id="5_7668t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_77yw5"]
 texture = ExtResource("1_6pt5u")

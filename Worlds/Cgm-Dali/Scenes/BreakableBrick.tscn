@@ -98,3 +98,4 @@ draw_order = 0
 
 [node name="Audio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_yo2yl")
+volume_db = 10.0
