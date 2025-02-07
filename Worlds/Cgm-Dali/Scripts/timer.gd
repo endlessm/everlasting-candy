@@ -4,11 +4,19 @@ extends Control
 @export var anim_player : AnimationPlayer
 @export var label : Label
 @export var warning_time : int
-var cur_time
+
+@onready var timer: Timer = $Timer
+@onready var warning_timer: Timer = $WarningTimer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	cur_time = max_time
+	timer.wait_time = max_time
+	timer.timeout.connect(_time_out)
+	timer.start()
+
+	warning_timer.wait_time = max_time - warning_time
+	warning_timer.timeout.connect(_anim_play)
+	warning_timer.start()
 	
 	#var tween := create_tween()
 	#tween.set_trans(Tween.TRANS_BACK)
@@ -17,21 +25,12 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	cur_time -= delta
-	if (cur_time < 0):
-		cur_time = 0
-	var formatted_time = str(int(cur_time))
-	label.text = formatted_time
-	
-	if (cur_time < warning_time):
-		_anim_play()
-	
-	if (cur_time == 0):
-		_time_out()
-	
+	label.text = str(ceil(timer.time_left))
+
 # player died when running out
 func _time_out():
-	#anim_player.play("")
+	anim_player.stop()
+
 	var player = get_tree().get_first_node_in_group("player")
 	if (player):
 		player.died.emit()
