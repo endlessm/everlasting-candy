@@ -17,11 +17,7 @@ func _ready() -> void:
 	warning_timer.wait_time = max_time - warning_time
 	warning_timer.timeout.connect(_anim_play)
 	warning_timer.start()
-	
-	#var tween := create_tween()
-	#tween.set_trans(Tween.TRANS_BACK)
-	#tween.tween_property(self, "global_position", vec)
-	#
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
