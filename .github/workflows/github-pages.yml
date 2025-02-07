@@ -1,9 +1,9 @@
 name: "Publish to GitHub Pages"
 on:
   workflow_dispatch:
-  release:
-    types:
-      - published
+  push:
+    branches:
+      - main
 
 # Cancel any ongoing previous run if the job is re-triggered
 concurrency:

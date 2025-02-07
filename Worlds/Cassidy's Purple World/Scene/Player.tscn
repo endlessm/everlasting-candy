@@ -1,8 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://b17jmr687k1sm"]
+[gd_scene load_steps=10 format=3 uid="uid://cwishirmqclcm"]
 
-[ext_resource type="Script" path="res://Script/Player.gd" id="1"]
-[ext_resource type="Texture2D" uid="uid://cboj002ecda55" path="res://Image/Player.png" id="2"]
-[ext_resource type="AudioStream" uid="uid://demm2lx0twrlj" path="res://Audio/Jump.ogg" id="3"]
+[ext_resource type="Script" path="res://Script/Player.gd" id="1_2w56c"]
+[ext_resource type="Texture2D" uid="uid://df3vdlh5fmjt1" path="res://Worlds/Cassidy's Purple World/Image/Player.png" id="2_rclpx"]
+[ext_resource type="AudioStream" uid="uid://demm2lx0twrlj" path="res://Audio/Jump.ogg" id="3_ea3of"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(3, 6)
@@ -71,11 +71,11 @@ _data = {
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 z_index = 10
 collision_layer = 2
-script = ExtResource("1")
+script = ExtResource("1_2w56c")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -1)
-texture = ExtResource("2")
+texture = ExtResource("2_rclpx")
 hframes = 7
 region_rect = Rect2(0, 0, 8, 8)
 
@@ -90,7 +90,7 @@ collision_mask = 5
 shape = SubResource("2")
 
 [node name="Audio" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3")
+stream = ExtResource("3_ea3of")
 bus = &"Sfx"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

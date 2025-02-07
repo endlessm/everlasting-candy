@@ -75,6 +75,14 @@ You will also need to apply your customised `TileSet.tres` to all other levels i
 
 Follow the same process as for the `Player`, except for the `Goober` scene.
 
+### Explosion
+
+1. Copy `Scene/Explosion.tscn` into your world's folder.
+
+2. In each of your world's levels, select the root `Level` node; in the inspector, set the `Explosion Scene` property to your world's copy of the scene.
+
+3. Make any changes you desire to your world's Explosion scene (such as replacing the sprite in its Sprite2D node with your own edited copy of `Image/Explosion.png`).
+
 ### Music
 
 1. Open your world's `World.tscn` file in the Editor's 2D view.

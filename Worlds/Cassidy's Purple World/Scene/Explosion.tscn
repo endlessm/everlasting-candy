@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://c2pdo2im2v8d1"]
+[gd_scene load_steps=5 format=3 uid="uid://cu7ovmwi0xpyn"]
 
-[ext_resource type="Texture2D" uid="uid://d24wavdwab2qx" path="res://Image/Explosion.png" id="2"]
-[ext_resource type="AudioStream" uid="uid://b31exg3ofm45k" path="res://Audio/Death.ogg" id="3"]
+[ext_resource type="Texture2D" uid="uid://bg73osqh8tm3" path="res://Worlds/Cassidy's Purple World/Image/Explosion.png" id="1_mj6ao"]
+[ext_resource type="AudioStream" uid="uid://b31exg3ofm45k" path="res://Audio/Death.ogg" id="2_u3wti"]
 
 [sub_resource type="Animation" id="1"]
 resource_name = "Idle"
@@ -41,12 +41,12 @@ _data = {
 [node name="Explosion" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2")
+texture = ExtResource("1_mj6ao")
 hframes = 4
 frame = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3")
+stream = ExtResource("2_u3wti")
 autoplay = true
 bus = &"Sfx"
 

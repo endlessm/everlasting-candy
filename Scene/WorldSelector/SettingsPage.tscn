@@ -1,0 +1,76 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2ay7olsehadk"]
+
+[ext_resource type="Theme" uid="uid://dqt6eyc0l8kms" path="res://Theme/WorldSelector.tres" id="1_gll88"]
+[ext_resource type="Script" path="res://Script/WorldSelector/SettingsPage.gd" id="2_6mi7e"]
+
+[node name="SettingsPage" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_gll88")
+script = ExtResource("2_6mi7e")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+offset_right = 140.0
+offset_bottom = 144.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 5
+
+[node name="ExtraWorldsBox" type="VBoxContainer" parent="VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 2
+
+[node name="MusicLabel" type="Label" parent="VBoxContainer/MarginContainer/ExtraWorldsBox"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_type_variation = &"HeaderLarge"
+theme_override_font_sizes/font_size = 9
+text = "music"
+horizontal_alignment = 1
+
+[node name="MusicSlider" type="HSlider" parent="VBoxContainer/MarginContainer/ExtraWorldsBox"]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = -30.0
+max_value = 0.0
+
+[node name="SfxLabel" type="Label" parent="VBoxContainer/MarginContainer/ExtraWorldsBox"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_type_variation = &"HeaderLarge"
+theme_override_font_sizes/font_size = 9
+text = "sfx"
+horizontal_alignment = 1
+
+[node name="SfxSlider" type="HSlider" parent="VBoxContainer/MarginContainer/ExtraWorldsBox"]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = -30.0
+max_value = 0.0
+
+[node name="BackButton" type="Button" parent="VBoxContainer/MarginContainer/ExtraWorldsBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Go Back"
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="pressed" from="VBoxContainer/MarginContainer/ExtraWorldsBox/BackButton" to="." method="_on_back_button_pressed"]
