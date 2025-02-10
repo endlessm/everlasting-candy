@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Worlds/Cgm-Dali/Scenes/breakable_brick.gd" id="1_ua0un"]
 [ext_resource type="Texture2D" uid="uid://bf38djp863jhx" path="res://Worlds/Cgm-Dali/Assets/niceice.png" id="2_u1vcc"]
 [ext_resource type="Texture2D" uid="uid://cv52b3trp75m5" path="res://Worlds/Cgm-Dali/Assets/iceShard1.png" id="3_v85w7"]
-[ext_resource type="AudioStream" uid="uid://cudfb5qx544tl" path="res://Worlds/Cgm-Dali/Assets/icebreak.mp3" id="3_yo2yl"]
+[ext_resource type="AudioStream" uid="uid://bwf1yicd4hgxa" path="res://Worlds/Cgm-Dali/Assets/icebreak.ogg" id="4_0imur"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_36br4"]
 size = Vector2(8, 8)
@@ -97,5 +97,5 @@ explosiveness = 1.0
 draw_order = 0
 
 [node name="Audio" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_yo2yl")
+stream = ExtResource("4_0imur")
 volume_db = 10.0

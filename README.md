@@ -27,5 +27,10 @@ Original game by [Harmony Honey].
 
 [Border Basic](https://v3x3d.itch.io/border-basic) font by VEXED, used under Creative Commons Attribution v4.0 International license.
 
+`icebreak.ogg` based on
+[Glass_Shards_Impact_05](https://freesound.org/people/BlondPanda/sounds/778608/)
+by [BlondPanda](https://freesound.org/people/BlondPanda/), used under
+[Creative Commons 0](http://creativecommons.org/publicdomain/zero/1.0/) license.
+
 [Candy Wrapper]: https://github.com/HarmonyHoney/CandyWrapper
 [Harmony Honey]: https://github.com/HarmonyHoney
