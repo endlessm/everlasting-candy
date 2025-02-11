@@ -1,0 +1,58 @@
+[gd_scene load_steps=10 format=3 uid="uid://coy818xi6sfmm"]
+
+[ext_resource type="Texture2D" uid="uid://b25mbm374xybq" path="res://Image/Candy.png" id="1_5bgr6"]
+
+[sub_resource type="Curve" id="Curve_5gsaf"]
+min_value = -360.0
+max_value = 360.0
+_data = [Vector2(0.00776699, -86.9576), 0.0, 0.0, 0, 0, Vector2(0.988349, 223.302), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_5yk1s"]
+curve = SubResource("Curve_5gsaf")
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_fqxjj"]
+
+[sub_resource type="Curve" id="Curve_wt5l6"]
+min_value = -2.0
+max_value = 2.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_pxxkd"]
+curve = SubResource("Curve_wt5l6")
+
+[sub_resource type="Curve" id="Curve_vw3h0"]
+_data = [Vector2(0.486348, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.376764), -0.0246779, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_m62qm"]
+curve = SubResource("Curve_vw3h0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_iup55"]
+particle_flag_disable_z = true
+angle_min = 71.0
+angle_max = 638.9
+direction = Vector3(0, 1, 0)
+initial_velocity_min = -82.13
+initial_velocity_max = -17.87
+angular_velocity_curve = SubResource("CurveTexture_5yk1s")
+directional_velocity_min = 1.0
+directional_velocity_max = 1.0
+directional_velocity_curve = SubResource("CurveXYZTexture_fqxjj")
+orbit_velocity_curve = SubResource("CurveTexture_pxxkd")
+gravity = Vector3(0, 100, 0)
+damping_min = 4.13
+damping_max = 4.13
+scale_curve = SubResource("CurveTexture_m62qm")
+
+[node name="BreakableParticleEffect" type="Node2D"]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_iup55")
+texture = ExtResource("1_5bgr6")
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+draw_order = 0

@@ -1,0 +1,105 @@
+[gd_scene load_steps=6 format=3 uid="uid://31omv0fuw2at"]
+
+[ext_resource type="FontFile" uid="uid://2q38bblqh3yd" path="res://Font/Border_Basic.ttf" id="1_ly7p6"]
+[ext_resource type="Script" path="res://Worlds/Cgm-Dali/Scripts/timer.gd" id="2_pc2wc"]
+
+[sub_resource type="Animation" id="Animation_f77hr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:theme_override_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.643137, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_yl43o"]
+resource_name = "low_on_time"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2333, 0.466667),
+"transitions": PackedFloat32Array(2, 1, 0.5),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.5, 1.5), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:theme_override_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.233333, 0.466667),
+"transitions": PackedFloat32Array(2, 1, 0.5),
+"update": 0,
+"values": [Color(0.643137, 0, 0, 1), Color(0.763683, 0.699301, 1.54018e-06, 1), Color(0.643137, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pt1jj"]
+_data = {
+"RESET": SubResource("Animation_f77hr"),
+"low_on_time": SubResource("Animation_yl43o")
+}
+
+[node name="Timer" type="Control" node_paths=PackedStringArray("anim_player", "label")]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("2_pc2wc")
+max_time = 10
+anim_player = NodePath("Control/Label/AnimationPlayer")
+label = NodePath("Control/Label")
+warning_time = 5
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 144.0
+offset_bottom = 144.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+offset_right = 42.0
+offset_bottom = 32.0
+theme_override_colors/font_color = Color(0.643137, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_ly7p6")
+text = "200"
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/Label"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_pt1jj")
+}
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="WarningTimer" type="Timer" parent="."]
+one_shot = true

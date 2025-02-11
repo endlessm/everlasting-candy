@@ -1,0 +1,101 @@
+[gd_scene load_steps=15 format=3 uid="uid://31lub63l71ih"]
+
+[ext_resource type="Script" path="res://Worlds/Cgm-Dali/Scenes/breakable_brick.gd" id="1_ua0un"]
+[ext_resource type="Texture2D" uid="uid://bf38djp863jhx" path="res://Worlds/Cgm-Dali/Assets/niceice.png" id="2_u1vcc"]
+[ext_resource type="Texture2D" uid="uid://cv52b3trp75m5" path="res://Worlds/Cgm-Dali/Assets/iceShard1.png" id="3_v85w7"]
+[ext_resource type="AudioStream" uid="uid://bwf1yicd4hgxa" path="res://Worlds/Cgm-Dali/Assets/icebreak.ogg" id="4_0imur"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_36br4"]
+size = Vector2(8, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g5qbx"]
+size = Vector2(6, 1)
+
+[sub_resource type="Curve" id="Curve_4xh8w"]
+min_value = -360.0
+max_value = 360.0
+_data = [Vector2(0.00776699, -86.9576), 0.0, 0.0, 0, 0, Vector2(0.988349, 223.302), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_67es3"]
+curve = SubResource("Curve_4xh8w")
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_1yiqf"]
+
+[sub_resource type="Curve" id="Curve_5xfvk"]
+min_value = -2.0
+max_value = 2.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_x4glg"]
+curve = SubResource("Curve_5xfvk")
+
+[sub_resource type="Curve" id="Curve_fl1h5"]
+_data = [Vector2(0.486348, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.376764), -0.0246779, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_jp8xr"]
+curve = SubResource("Curve_fl1h5")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ituud"]
+particle_flag_disable_z = true
+angle_min = 71.0
+angle_max = 638.9
+direction = Vector3(0, 1, 0)
+initial_velocity_min = -82.13
+initial_velocity_max = -17.87
+angular_velocity_curve = SubResource("CurveTexture_67es3")
+directional_velocity_min = 1.0
+directional_velocity_max = 1.0
+directional_velocity_curve = SubResource("CurveXYZTexture_1yiqf")
+orbit_velocity_curve = SubResource("CurveTexture_x4glg")
+gravity = Vector3(0, 100, 0)
+damping_min = 4.13
+damping_max = 4.13
+scale_curve = SubResource("CurveTexture_jp8xr")
+
+[node name="BreakableBrick" type="Node2D" node_paths=PackedStringArray("particles", "static_body", "area_2d", "area_2d_above")]
+script = ExtResource("1_ua0un")
+particles = NodePath("GPUParticles2D")
+static_body = NodePath("StaticBody2D")
+area_2d = NodePath("Area2D")
+area_2d_above = NodePath("Area2DAbove")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_36br4")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+texture = ExtResource("2_u1vcc")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_g5qbx")
+
+[node name="Area2DAbove" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DAbove"]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_g5qbx")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_ituud")
+texture = ExtResource("3_v85w7")
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+draw_order = 0
+
+[node name="Audio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_0imur")
+volume_db = 10.0
