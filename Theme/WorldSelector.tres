@@ -1,5 +1,6 @@
-[gd_resource type="Theme" load_steps=8 format=3 uid="uid://dqt6eyc0l8kms"]
+[gd_resource type="Theme" load_steps=15 format=3 uid="uid://dqt6eyc0l8kms"]
 
+[ext_resource type="Texture2D" uid="uid://d24wavdwab2qx" path="res://Image/Explosion.png" id="1_1u1g3"]
 [ext_resource type="FontFile" uid="uid://2q38bblqh3yd" path="res://Font/Border_Basic.ttf" id="1_32alm"]
 [ext_resource type="FontFile" uid="uid://d3xp4agbq2lok" path="res://Font/m3x6.ttf" id="2_6rcqi"]
 
@@ -16,6 +17,45 @@ anti_aliasing = false
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_50uqy"]
 content_margin_bottom = 3.0
 bg_color = Color(0.454902, 0.192157, 0.00392157, 1)
+anti_aliasing = false
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hlkyj"]
+atlas = ExtResource("1_1u1g3")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_028bd"]
+atlas = ExtResource("1_1u1g3")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vdk7f"]
+atlas = ExtResource("1_1u1g3")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cus6d"]
+bg_color = Color(1, 0.984314, 0.8, 0.784314)
+border_width_left = 1
+border_width_right = 1
+border_color = Color(0.8, 0.8, 0.8, 0)
+expand_margin_top = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7xnxk"]
+bg_color = Color(1, 0.984314, 0.8, 1)
+border_width_left = 1
+border_width_right = 1
+border_color = Color(0.8, 0.8, 0.8, 0)
+expand_margin_top = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hxfml"]
+bg_color = Color(0.996078, 0.615686, 0.0862745, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.454902, 0.192157, 0.00392157, 1)
+expand_margin_top = 3.0
+expand_margin_bottom = 3.0
 anti_aliasing = false
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_poevj"]
@@ -42,6 +82,12 @@ CheckButton/colors/font_focus_color = Color(0.996078, 0.615686, 0.0862745, 1)
 CheckButton/colors/font_hover_color = Color(0.996078, 0.615686, 0.0862745, 1)
 CheckButton/colors/font_hover_pressed_color = Color(0.996078, 0.615686, 0.0862745, 1)
 CheckButton/colors/font_pressed_color = Color(0.454902, 0.192157, 0, 1)
+HSlider/icons/grabber = SubResource("AtlasTexture_hlkyj")
+HSlider/icons/grabber_disabled = SubResource("AtlasTexture_028bd")
+HSlider/icons/grabber_highlight = SubResource("AtlasTexture_vdk7f")
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_cus6d")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_7xnxk")
+HSlider/styles/slider = SubResource("StyleBoxFlat_hxfml")
 HeaderLarge/constants/line_spacing = -14
 HeaderLarge/font_sizes/font_size = 16
 HeaderLarge/fonts/font = ExtResource("1_32alm")
