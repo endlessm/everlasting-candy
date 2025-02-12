@@ -10,8 +10,12 @@ extends Node2D
 	set = _set_progress
 
 ## The textures to use for the candy falling in the background.
-@export var candy_textures : Array[Texture2D] = [preload("res://Image/Candy.png")]
+## If this list is empty, the png files in the directory Image/Candy adjacent to
+## the world will be used; if no such files exist, a default candy will be used.
+@export var candy_textures : Array[Texture2D] = []
 var _texture_index := 0
+
+const FALLBACK_TEXTURE : Texture2D = preload("res://Image/Candy.png")
 
 var delay := 3.0
 var timer := 0.0
@@ -34,6 +38,12 @@ func _set_progress(new_progress):
 
 
 func _ready() -> void:
+	if not candy_textures:
+		candy_textures = ResourceFinder.load_world_assets(self, "Candy")
+
+	if not candy_textures:
+		candy_textures = [FALLBACK_TEXTURE]
+
 	candy_textures.shuffle()
 
 

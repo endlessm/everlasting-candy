@@ -99,6 +99,11 @@ Follow the same process as for the `Player`, except for the `Goober` scene.
 
 3. Use the Inspector to customise the playback options or to use a different audio file.
 
+### Falling candy
+
+Put replacement images into the `Image/Candy` subdirectory of your world. They
+will fall in a shuffled order when you play your world.
+
 ### Background
 
 1. Open your world's `World.tscn` file in the Editor's 2D view.
