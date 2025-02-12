@@ -15,15 +15,15 @@ func _ready():
 
 func _physics_process(delta):
 	flip_clock += delta
-	
+
 	if !NodeCast.is_colliding():
 		flip()
-	
+
 	velocity = vel
 	move_and_slide()
 	if velocity.x == 0:
 		flip()
-	
+
 	position = global.wrapp(position)
 
 func flip():
