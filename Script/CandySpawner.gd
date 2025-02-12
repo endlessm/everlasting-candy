@@ -16,6 +16,7 @@ extends Node2D
 var _texture_index := 0
 
 const FALLBACK_TEXTURE : Texture2D = preload("res://Image/Candy.png")
+var _MAX_SIZE = FALLBACK_TEXTURE.get_size().x
 
 var delay := 3.0
 var timer := 0.0
@@ -47,6 +48,18 @@ func _ready() -> void:
 	candy_textures.shuffle()
 
 
+func _make_sprite() -> Sprite2D:
+	var c := Sprite2D.new()
+	c.texture = candy_textures[_texture_index]
+	var dimensions = c.texture.get_size()
+	if dimensions.x > _MAX_SIZE or dimensions.y > _MAX_SIZE:
+		c.scale *= (_MAX_SIZE / max(dimensions.x, dimensions.y))
+	_texture_index += 1
+	_texture_index %= candy_textures.size()
+	add_child(c)
+	return c
+
+
 func _process(delta):
 	timer -= delta
 
@@ -64,11 +77,7 @@ func _process(delta):
 		if idle.size() > 0:
 			c = idle.pop_back()
 		else:
-			c = Sprite2D.new()
-			c.texture = candy_textures[_texture_index]
-			_texture_index += 1
-			_texture_index %= candy_textures.size()
-			add_child(c)
+			c = _make_sprite()
 		active.append(c)
 		c.position.y = -16
 		c.position.x = randi_range(0, 144)
