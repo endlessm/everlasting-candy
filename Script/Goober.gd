@@ -9,6 +9,10 @@ var vel := Vector2(spd, 0.001)
 var flip_clock := 1.0
 
 func _ready():
+	var world_textures := ResourceFinder.load_world_assets(self, "Goober")
+	if world_textures:
+		NodeSprite.texture = world_textures.pick_random()
+
 	# change starting direction
 	if randf() > 0.5:
 		flip()

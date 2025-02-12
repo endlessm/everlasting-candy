@@ -23,6 +23,12 @@ var termVel := 400.0
 var onFloor := false
 var jump := false
 
+func _ready() -> void:
+	var world_textures := ResourceFinder.load_world_assets(self, "Player")
+	if world_textures:
+		NodeSprite.texture = world_textures.pick_random()
+
+
 func _physics_process(delta):
 	if not interactive:
 		return
