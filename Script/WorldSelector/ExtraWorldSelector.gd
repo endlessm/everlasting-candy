@@ -4,6 +4,7 @@ signal world_selected(world: String)
 signal back
 
 const WORLDS_DIR := "res://Worlds/"
+const SAMPLE_WORLD := "Sample"
 
 @onready var Scroll: ScrollContainer = %Scroll
 @onready var ExtraWorldsBox: VBoxContainer = %ExtraWorldsBox
@@ -20,6 +21,15 @@ func _find_worlds(path) -> Array[String]:
 			if worlds_dir.current_is_dir():
 				worlds.append(child)
 			child = worlds_dir.get_next()
+
+	worlds.sort_custom(func (a: String, b: String): return a.naturalnocasecmp_to(b) < 0)
+
+	# Move the sample world to the end
+	var ix := worlds.find(SAMPLE_WORLD)
+	if ix >= 0:
+		worlds.remove_at(ix)
+		worlds.push_back(SAMPLE_WORLD)
+
 	return worlds
 
 
