@@ -51,7 +51,6 @@ func _process(delta):
 		else:
 			c = Sprite2D.new()
 			c.texture = candy_texture
-			c.z_index = -1
 			add_child(c)
 		active.append(c)
 		c.position.y = -16
