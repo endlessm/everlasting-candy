@@ -27,6 +27,8 @@ Original game by [Harmony Honey].
 
 [Border Basic](https://v3x3d.itch.io/border-basic) font by VEXED, used under Creative Commons Attribution v4.0 International license.
 
+[m3x6](https://managore.itch.io/m3x6) font by Daniel Linssen.
+
 `icebreak.ogg` based on
 [Glass_Shards_Impact_05](https://freesound.org/people/BlondPanda/sounds/778608/)
 by [BlondPanda](https://freesound.org/people/BlondPanda/), used under
