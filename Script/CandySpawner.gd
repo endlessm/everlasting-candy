@@ -46,6 +46,10 @@ func _ready() -> void:
 		candy_textures = [FALLBACK_TEXTURE]
 
 	candy_textures.shuffle()
+	for candy_texture in candy_textures:
+		var c := _make_sprite()
+		c.position.y = -_MAX_SIZE
+		idle.push_back(c)
 
 
 func _make_sprite() -> Sprite2D:
@@ -75,7 +79,7 @@ func _process(delta):
 		timer = delay
 		var c: Sprite2D
 		if idle.size() > 0:
-			c = idle.pop_back()
+			c = idle.pop_front()
 		else:
 			c = _make_sprite()
 		active.append(c)
