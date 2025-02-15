@@ -17,7 +17,7 @@ offset_bottom = 144.0
 color = Color(0.956863, 0.8, 1, 1)
 
 [node name="CandySpawner" parent="." instance=ExtResource("2_3cm1m")]
-candy_texture = ExtResource("3_n222a")
+candy_textures = Array[Texture2D]([ExtResource("3_n222a")])
 
 [node name="Overlay" type="Sprite2D" parent="."]
 visible = false

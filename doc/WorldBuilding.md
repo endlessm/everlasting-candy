@@ -63,13 +63,32 @@ You will also need to apply your customised `TileSet.tres` to all other levels i
 
 ### Player
 
+#### Sprite swap
+
+1. Copy `Image/Player.png` to the `Image/Player` subdirectory of your world.
+
+2. Edit the image to your taste. Your edited image must have the same dimensions
+   and number of frames as the default.
+
+In the editor, the player will have its default appearance, but when you run the
+game, its appearance will follow your changes. If you place more than one sprite
+sheet into your world's `Image/Player` directory, a random one will be selected
+each time you start a level.
+
+#### Further customisation
+
+If you want to customise the Player further (such as by adding more frames to
+its animations) you must make your own copy of the scene:
+
 1. Copy `TileSet.tres` into your world, and apply it to all levels in your world, as above.
 
 2. Copy `Scene/Player.tscn` into your world's folder.
 
-3. Open your world's `TileSet` and replace the `Player` scene in its `Actors` section with your world's copy of the scene, taking care to keep its ID the same (`1`) as the original.
+3. Open your world's `TileSet` and replace the `Player` scene in its `Actors`
+   section with your world's copy of the scene, taking care to keep its ID the
+   same (`1`) as the original.
 
-4. Make any changes you desire to your world's Player scene (such as replacing the sprite in its Sprite2D node with your own edited copy of `Image/Player.png`).
+4. Make any changes you desire to your world's Player scene.
 
 ### Goober
 
@@ -77,11 +96,26 @@ Follow the same process as for the `Player`, except for the `Goober` scene.
 
 ### Explosion
 
+#### Sprite swap
+
+1. Copy `Image/Explosion.png` to the `Image/Explosion` subdirectory of your world.
+
+2. Edit the image to your taste. Your edited image must have the same dimensions
+   and number of frames as the default.
+
+If you place more than one sprite sheet into your world's `Image/Explosion`
+directory, a random one will be selected each time an explosion occurs.
+
+#### Further customisation
+
+If you want to customise the explosionfurther (such as by adding more frames to
+its animations) you must make your own copy of the scene:
+
 1. Copy `Scene/Explosion.tscn` into your world's folder.
 
 2. In each of your world's levels, select the root `Level` node; in the inspector, set the `Explosion Scene` property to your world's copy of the scene.
 
-3. Make any changes you desire to your world's Explosion scene (such as replacing the sprite in its Sprite2D node with your own edited copy of `Image/Explosion.png`).
+3. Make any changes you desire to your world's Explosion scene.
 
 ### Music
 
@@ -98,6 +132,11 @@ Follow the same process as for the `Player`, except for the `Goober` scene.
 2. Select the `Win` or `Lose` Audio node from the Scene Dock.
 
 3. Use the Inspector to customise the playback options or to use a different audio file.
+
+### Falling candy
+
+Put replacement images into the `Image/Candy` subdirectory of your world. They
+will fall in a shuffled order when you play your world.
 
 ### Background
 
