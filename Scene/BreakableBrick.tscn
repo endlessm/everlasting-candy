@@ -1,9 +1,9 @@
 [gd_scene load_steps=15 format=3 uid="uid://31lub63l71ih"]
 
-[ext_resource type="Script" path="res://Worlds/Cgm-Dali/Scenes/breakable_brick.gd" id="1_ua0un"]
-[ext_resource type="Texture2D" uid="uid://bf38djp863jhx" path="res://Worlds/Cgm-Dali/Assets/niceice.png" id="2_u1vcc"]
-[ext_resource type="Texture2D" uid="uid://cv52b3trp75m5" path="res://Worlds/Cgm-Dali/Assets/iceShard1.png" id="3_v85w7"]
-[ext_resource type="AudioStream" uid="uid://bwf1yicd4hgxa" path="res://Worlds/Cgm-Dali/Assets/icebreak.ogg" id="4_0imur"]
+[ext_resource type="Script" path="res://Script/BreakableBrick.gd" id="1_5ghe3"]
+[ext_resource type="Texture2D" uid="uid://bf38djp863jhx" path="res://Worlds/Cgm-Dali/Assets/niceice.png" id="2_bfgtv"]
+[ext_resource type="Texture2D" uid="uid://cv52b3trp75m5" path="res://Worlds/Cgm-Dali/Assets/iceShard1.png" id="3_70qjo"]
+[ext_resource type="AudioStream" uid="uid://bwf1yicd4hgxa" path="res://Worlds/Cgm-Dali/Assets/icebreak.ogg" id="4_xaub0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_36br4"]
 size = Vector2(8, 8)
@@ -56,7 +56,7 @@ damping_max = 4.13
 scale_curve = SubResource("CurveTexture_jp8xr")
 
 [node name="BreakableBrick" type="Node2D" node_paths=PackedStringArray("particles", "static_body", "area_2d", "area_2d_above")]
-script = ExtResource("1_ua0un")
+script = ExtResource("1_5ghe3")
 particles = NodePath("GPUParticles2D")
 static_body = NodePath("StaticBody2D")
 area_2d = NodePath("Area2D")
@@ -69,7 +69,7 @@ collision_mask = 0
 shape = SubResource("RectangleShape2D_36br4")
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
-texture = ExtResource("2_u1vcc")
+texture = ExtResource("2_bfgtv")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0
@@ -90,12 +90,12 @@ shape = SubResource("RectangleShape2D_g5qbx")
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 emitting = false
 process_material = SubResource("ParticleProcessMaterial_ituud")
-texture = ExtResource("3_v85w7")
+texture = ExtResource("3_70qjo")
 lifetime = 2.0
 one_shot = true
 explosiveness = 1.0
 draw_order = 0
 
 [node name="Audio" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_0imur")
+stream = ExtResource("4_xaub0")
 volume_db = 10.0

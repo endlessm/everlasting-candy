@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cboj002ecda55" path="res://Image/Player.png" id="2_dq125"]
 [ext_resource type="Texture2D" uid="uid://cn5awui7bqekp" path="res://Image/Goober.png" id="3_5jlfw"]
 [ext_resource type="Texture2D" uid="uid://d24wavdwab2qx" path="res://Image/Explosion.png" id="4_nsxeg"]
-[ext_resource type="PackedScene" uid="uid://31lub63l71ih" path="res://Worlds/Cgm-Dali/Scenes/BreakableBrick.tscn" id="5_7668t"]
+[ext_resource type="PackedScene" uid="uid://31lub63l71ih" path="res://Scene/BreakableBrick.tscn" id="5_7668t"]
 [ext_resource type="PackedScene" uid="uid://b17jmr687k1sm" path="res://Scene/Player.tscn" id="6_wadhj"]
 [ext_resource type="PackedScene" uid="uid://byheefdx4lxmx" path="res://Scene/Goober.tscn" id="7_6m7pk"]
 
