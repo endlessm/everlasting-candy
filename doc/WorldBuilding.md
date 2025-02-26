@@ -108,7 +108,7 @@ directory, a random one will be selected each time an explosion occurs.
 
 #### Further customisation
 
-If you want to customise the explosionfurther (such as by adding more frames to
+If you want to customise the explosion further (such as by adding more frames to
 its animations) you must make your own copy of the scene:
 
 1. Copy `Scene/Explosion.tscn` into your world's folder.
