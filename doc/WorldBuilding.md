@@ -2,7 +2,7 @@
 
 First, choose a name for your new world. This should be as descriptive and creative as you like - this is the name that will appear on the world selection menu. You can use spaces and any other characters that are permitted within filenames. Below we will use name “Flying Cow Party” as an example.
 
-Copy the `Worlds/Sample` folder to `Worlds/Flying Cow Party`. You can do this from Godot's FileSystem view by right clicking on `Sample` and selecting `Duplicate`. Run the game: you should see “Flying Cow Party” in the world selection menu.
+Copy the `Worlds/World One` folder to `Worlds/Flying Cow Party`. You can do this from Godot's FileSystem view by right clicking on `World One` and selecting `Duplicate`. Run the game: you should see “Flying Cow Party” in the world selection menu.
 
 Now, you can adapt the existing sample levels and add new ones within `Worlds/Flying Cow Party`. Only the scene files that start with a number in the filename are considered levels, and a natural order sorting is applied to their filenames. In other words, if you maintain the naming scheme of `1.tscn`, `2.tscn`, `3.tscn` and so on, the levels will play in this order.
 
