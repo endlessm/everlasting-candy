@@ -4,7 +4,7 @@ signal world_selected(world: String)
 signal back
 
 const WORLDS_DIR := "res://Worlds/"
-const SAMPLE_WORLD := "Sample"
+const SAMPLE_WORLD := "World One"
 
 @onready var Scroll: ScrollContainer = %Scroll
 @onready var ExtraWorldsBox: VBoxContainer = %ExtraWorldsBox
