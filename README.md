@@ -1,4 +1,4 @@
-# ![icon](Image/icon/48.png) Everlasting Candy
+# ![icon](icon.svg) Everlasting Candy
 
 Looping arcade platformer game, based on [Candy Wrapper] by [Harmony Honey]
 
