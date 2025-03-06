@@ -15,7 +15,7 @@ The easiest way to create levels is by painting tiles. Select the Map node. The 
 
 The first level in the sequence (typically `0.tscn`) is treated as the start screen. This level is treated specially by the game: the player cannot move, and pressing Jump starts the game proper. Similarly, the final level (typically `999.tscn`) is treated as the end screen.
 
-A core part of the game is that the levels wrap around: if the player or enemies move off any of the four sides of the screen, they reappear on the opposite side. For this to work correctly, you currently need to manually copy any ledges that are at the edge of the tile map to the corresponding position just off the other edge of the map. See https://github.com/endlessm/everlasting-candy/issues/19 for more details.
+A core part of the game is that the levels wrap around: if the player or enemies move off any of the four sides of the screen, they reappear on the opposite side. For this to work correctly, you currently need to manually copy any ledges that are at the edge of the tile map to the corresponding position just off the other edge of the map. See https://github.com/endlessm/candy-collective/issues/19 for more details.
 
 ## Customizing your world
 
@@ -150,7 +150,7 @@ Note: the background would still look light yellow when editing each level or wh
 
 ## Contributing your world
 
-Once your world is at a suitable point for initial contribution, please submit it to Everlasting Candy as a GitHub Pull Request.
+Once your world is at a suitable point for initial contribution, please submit it to Candy Collective as a GitHub Pull Request.
 
 The commits within your Pull Request should consist only of the addition of your world. You must not include any unrelated changes.
 

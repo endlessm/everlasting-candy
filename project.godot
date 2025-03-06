@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Everlasting Candy"
+config/name="Candy Collective"
 config/description="by Harmony Honey
 and Endless Foundation"
 run/main_scene="res://Scene/WorldSelector.tscn"
