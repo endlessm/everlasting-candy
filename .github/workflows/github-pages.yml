@@ -18,32 +18,8 @@ permissions:
   id-token: write
 
 jobs:
-  check:
-    name: Check if GitHub Pages is enabled
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check
-        id: check
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          if gh api "repos/${{ github.repository }}/pages" | jq --exit-status '.build_type == "workflow"'
-          then
-              echo "enabled=true" >> "$GITHUB_OUTPUT"
-          else
-              echo "# Not published to GitHub Pages" >> "$GITHUB_STEP_SUMMARY"
-              echo "" >> "$GITHUB_STEP_SUMMARY"
-              echo -n "Check that Pages is enabled, with the source set to GitHub Actions, in the " >> "$GITHUB_STEP_SUMMARY"
-              echo "[repository settings](https://github.com/${{ github.repository }}/settings/pages)." >> "$GITHUB_STEP_SUMMARY"
-          fi
-    outputs:
-      enabled: ${{ steps.check.outputs.enabled }}
-
   publish:
     name: Publish all branches to GitHub Pages
-    needs:
-      - check
-    if: ${{ needs.check.outputs.enabled }}
     runs-on: ubuntu-latest
     steps:
       - uses: endlessm/amalgamate-pages@v1
