@@ -44,7 +44,7 @@ text = "Play Candy Wrapper"
 
 [node name="ExtraWorldsButton" type="Button" parent="VBox/MarginContainer2/MainWorldBox"]
 layout_mode = 2
-text = "Extra Worlds"
+text = "Community Worlds"
 
 [node name="Settings" type="Button" parent="VBox/MarginContainer2/MainWorldBox"]
 layout_mode = 2
