@@ -150,7 +150,7 @@ Note: the background would still look light yellow when editing each level or wh
 
 ## Contributing your world
 
-Once your world is at a suitable point for initial contribution, please submit it to Everlasting Candy as a GitHub Pull Request.
+Once your world is at a suitable point for initial contribution, please submit it to Candy Collective as a GitHub Pull Request.
 
 The commits within your Pull Request should consist only of the addition of your world. You must not include any unrelated changes.
 

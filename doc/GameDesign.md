@@ -1,10 +1,10 @@
-# Everlasting Candy
+# Candy Collective
 
 This document aims to lay out the underlying spirit of the game and guide future development. Contributions are expected to fall within the project vision outlined here. Evolutions and expansions to this document can also be considered in collaboration with the maintainers.
 
 ## Description
 
-Everlasting Candy aims to offer a fun and unique experience by embodying:
+Candy Collective aims to offer a fun and unique experience by embodying:
  * **Simplicity**. You can pick up this game and get familiar with it in less than one minute. Complexity is low and there aren't many game dynamics to get your head around.
  * **Unconventionality**. It looks like a simple platformer but there are some surprises in store.
  * **A touch of harshness**. The game punishes the player in unusual ways, but only to a light and controlled degree that doesn't feel too unreasonable or annoying.
