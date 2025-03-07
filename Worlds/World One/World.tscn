@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Script/World.gd" id="1_2kgfm"]
 [ext_resource type="AudioStream" uid="uid://7sq3il53l6oa" path="res://Audio/OST.mp3" id="2_pgqpj"]
 [ext_resource type="PackedScene" uid="uid://ddy88bnd0h5it" path="res://Scene/CandySpawner.tscn" id="2_rive7"]
-[ext_resource type="Texture2D" uid="uid://ccxmd1v0nd7wi" path="res://Image/Title.png" id="4_5fw05"]
+[ext_resource type="Texture2D" uid="uid://b402pfhgknkuv" path="res://Image/Desaturated/Title.png" id="3_q1e8i"]
 [ext_resource type="AudioStream" uid="uid://bu4rmhfiu1mm5" path="res://Audio/Win.ogg" id="5_aa7p7"]
 [ext_resource type="AudioStream" uid="uid://dgnfi0xvfvhnx" path="res://Audio/Lose.wav" id="6_0fq84"]
 
@@ -13,14 +13,14 @@ script = ExtResource("1_2kgfm")
 [node name="Background" type="ColorRect" parent="."]
 offset_right = 144.0
 offset_bottom = 144.0
-color = Color(1, 0.984314, 0.8, 1)
+color = Color(0.976471, 0.976471, 0.976471, 1)
 
 [node name="CandySpawner" parent="." instance=ExtResource("2_rive7")]
 
 [node name="Overlay" type="Sprite2D" parent="."]
 visible = false
 z_index = 5
-texture = ExtResource("4_5fw05")
+texture = ExtResource("3_q1e8i")
 centered = false
 hframes = 4
 frame = 1
