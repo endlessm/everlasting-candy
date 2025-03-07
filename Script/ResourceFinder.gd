@@ -33,12 +33,12 @@ static func list_scenes(path: String) -> Array[String]:
 	return scenes
 
 
-## Lists images in the given resource directory, accounting for the fact that,
-## when exported, resource files are renamed, but must be loaded by their
-## original name.
+## Lists images in the given resource directory, recursively, accounting for
+## the fact that, when exported, resource files are renamed, but must be loaded
+## by their original name.
 ##
-## Returns the original basename of each image in the given directory, or empty
-## list if the directory does not exist.
+## Returns the absolute path of each image, or an empty list if the directory
+## does not exist.
 ##
 ## TODO: in Godot 4.4, use ResourceLoader.list_directory()
 ##  https://docs.godotengine.org/en/latest/classes/class_resourceloader.html#class-resourceloader-method-list-directory
@@ -61,8 +61,10 @@ static func list_images(path: String) -> Array[String]:
 	dir.list_dir_begin()
 	var file := dir.get_next()
 	while file:
-		if _IMAGE_EXTENSIONS.any(func(ext): return file.ends_with(ext + ".import")):
-			images.append(file.left(-len(".import")))
+		if dir.current_is_dir():
+			images.append_array(list_images(path.path_join(file)))
+		elif _IMAGE_EXTENSIONS.any(func(ext): return file.ends_with(ext + ".import")):
+			images.append(path.path_join(file.left(-len(".import"))))
 		file = dir.get_next()
 	dir.list_dir_end()
 
@@ -74,7 +76,7 @@ static func load_images(path: String) -> Array[Texture2D]:
 	var image_filenames := list_images(path)
 	var textures: Array[Texture2D]
 	for filename in image_filenames:
-		var texture := load(path.path_join(filename)) as Texture2D
+		var texture := load(filename) as Texture2D
 		textures.append(texture)
 	return textures
 
