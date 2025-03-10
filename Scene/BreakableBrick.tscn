@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://31lub63l71ih"]
 
-[ext_resource type="Script" path="res://Script/BreakableBrick.gd" id="1_5ghe3"]
+[ext_resource type="Script" uid="uid://dmc730520m7nx" path="res://Script/BreakableBrick.gd" id="1_5ghe3"]
 [ext_resource type="Texture2D" uid="uid://bf38djp863jhx" path="res://Worlds/Cgm-Dali/Assets/niceice.png" id="2_bfgtv"]
 [ext_resource type="Texture2D" uid="uid://cv52b3trp75m5" path="res://Worlds/Cgm-Dali/Assets/iceShard1.png" id="3_70qjo"]
 [ext_resource type="AudioStream" uid="uid://bwf1yicd4hgxa" path="res://Worlds/Cgm-Dali/Assets/icebreak.ogg" id="4_xaub0"]
@@ -12,8 +12,7 @@ size = Vector2(8, 8)
 size = Vector2(6, 1)
 
 [sub_resource type="Curve" id="Curve_4xh8w"]
-min_value = -360.0
-max_value = 360.0
+_limits = [-360.0, 360.0, 0.0, 1.0]
 _data = [Vector2(0.00776699, -86.9576), 0.0, 0.0, 0, 0, Vector2(0.988349, 223.302), 0.0, 0.0, 0, 0]
 point_count = 2
 
@@ -23,8 +22,7 @@ curve = SubResource("Curve_4xh8w")
 [sub_resource type="CurveXYZTexture" id="CurveXYZTexture_1yiqf"]
 
 [sub_resource type="Curve" id="Curve_5xfvk"]
-min_value = -2.0
-max_value = 2.0
+_limits = [-2.0, 2.0, 0.0, 1.0]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://dl2mvatn1hkiq"]
 
-[ext_resource type="Script" path="res://Script/World.gd" id="1_prt4d"]
+[ext_resource type="Script" uid="uid://bld0o1o2tm20a" path="res://Script/World.gd" id="1_prt4d"]
 [ext_resource type="AudioStream" uid="uid://7sq3il53l6oa" path="res://Audio/OST.mp3" id="2_swba7"]
 [ext_resource type="PackedScene" uid="uid://ddy88bnd0h5it" path="res://Scene/CandySpawner.tscn" id="2_vsd7d"]
 [ext_resource type="Texture2D" uid="uid://ccxmd1v0nd7wi" path="res://Image/Title.png" id="4_rs0wp"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://8m08jr2e78ot"]
 
-[ext_resource type="Script" path="res://Script/World.gd" id="1_vre64"]
+[ext_resource type="Script" uid="uid://bld0o1o2tm20a" path="res://Script/World.gd" id="1_vre64"]
 [ext_resource type="PackedScene" uid="uid://ddy88bnd0h5it" path="res://Scene/CandySpawner.tscn" id="2_3cm1m"]
 [ext_resource type="Texture2D" uid="uid://nyam5lcqt75e" path="res://Worlds/Cassidy's Purple World/Image/Title.png" id="3_74hw1"]
 [ext_resource type="Texture2D" uid="uid://cfafehak6c3yu" path="res://Worlds/Cassidy's Purple World/Image/Candy.png" id="3_n222a"]

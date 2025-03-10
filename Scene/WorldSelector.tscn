@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://h6eyk0hg1y1f"]
 
 [ext_resource type="Theme" uid="uid://dqt6eyc0l8kms" path="res://Theme/WorldSelector.tres" id="1_h1u7b"]
-[ext_resource type="Script" path="res://Script/WorldSelector.gd" id="2_c1jjg"]
+[ext_resource type="Script" uid="uid://ca8wfdo1nykur" path="res://Script/WorldSelector.gd" id="2_c1jjg"]
 [ext_resource type="PackedScene" uid="uid://b1qffdabwqnxf" path="res://Scene/WorldSelector/ExtraWorldSelector.tscn" id="3_d8a1w"]
 [ext_resource type="PackedScene" uid="uid://pnnwgl5j385l" path="res://Scene/WorldSelector/MainWorldSelector.tscn" id="3_dc6jw"]
 [ext_resource type="PackedScene" uid="uid://d2ay7olsehadk" path="res://Scene/WorldSelector/SettingsPage.tscn" id="5_opwul"]

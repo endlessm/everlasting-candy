@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=4 uid="uid://b4bncdtbi700e"]
 
-[ext_resource type="Script" path="res://Script/Level.gd" id="1_i7vcd"]
+[ext_resource type="Script" uid="uid://bg68lxn57p680" path="res://Script/Level.gd" id="1_i7vcd"]
 [ext_resource type="PackedScene" uid="uid://cu7ovmwi0xpyn" path="res://Worlds/Cassidy's Purple World/Scene/Explosion.tscn" id="2_qrm85"]
 [ext_resource type="TileSet" uid="uid://c6ssayef3wf6r" path="res://Worlds/Cassidy's Purple World/TileSet.tres" id="2_xc1wb"]
 [ext_resource type="PackedScene" uid="uid://cwishirmqclcm" path="res://Worlds/Cassidy's Purple World/Scene/Player.tscn" id="3_s8eau"]
