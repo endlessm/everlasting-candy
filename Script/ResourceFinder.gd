@@ -8,65 +8,18 @@ class_name ResourceFinder
 const _IMAGE_EXTENSIONS = [".png", ".jpg", ".jpeg", ".svg", ".webp"]
 
 
-## Lists scenes in the given resource directory, accounting for the fact that,
-## when exported, resource files are renamed, but must be loaded by their
-## original name.
-##
-## Returns the original basename of each scene in the given directory.
-##
-## TODO: in Godot 4.4, use ResourceLoader.list_directory()
-##  https://docs.godotengine.org/en/latest/classes/class_resourceloader.html#class-resourceloader-method-list-directory
-static func list_scenes(path: String) -> Array[String]:
-	var scenes: Array[String]
-	var dir := DirAccess.open(path)
-
-	dir.list_dir_begin()
-	var file := dir.get_next()
-	while file:
-		if file.ends_with(".tscn.remap"):
-			scenes.append(file.left(-len(".remap")))
-		elif file.ends_with(".tscn"):
-			scenes.append(file)
-		file = dir.get_next()
-	dir.list_dir_end()
-
-	return scenes
-
-
-## Lists images in the given resource directory, recursively, accounting for
-## the fact that, when exported, resource files are renamed, but must be loaded
-## by their original name.
+## Lists images in the given resource directory, recursively.
 ##
 ## Returns the absolute path of each image, or an empty list if the directory
 ## does not exist.
-##
-## TODO: in Godot 4.4, use ResourceLoader.list_directory()
-##  https://docs.godotengine.org/en/latest/classes/class_resourceloader.html#class-resourceloader-method-list-directory
 static func list_images(path: String) -> Array[String]:
 	var images: Array[String]
-	var dir := DirAccess.open(path)
 
-	if not dir:
-		var err := DirAccess.get_open_error()
-		match err:
-			# Weirdly trying to open a nonexistant resource path
-			# yields ERR_INVALID_PARAMETER
-			ERR_FILE_NOT_FOUND | ERR_INVALID_PARAMETER:
-				pass
-			_:
-				print_debug("Can't list directory %s: %s" % [path, err])
-
-		return images
-
-	dir.list_dir_begin()
-	var file := dir.get_next()
-	while file:
-		if dir.current_is_dir():
+	for file in ResourceLoader.list_directory(path):
+		if file.ends_with("/"):
 			images.append_array(list_images(path.path_join(file)))
-		elif _IMAGE_EXTENSIONS.any(func(ext): return file.ends_with(ext + ".import")):
-			images.append(path.path_join(file.left(-len(".import"))))
-		file = dir.get_next()
-	dir.list_dir_end()
+		elif _IMAGE_EXTENSIONS.any(func(ext): return file.ends_with(ext)):
+			images.append(path.path_join(file))
 
 	return images
 

@@ -19,7 +19,8 @@ const CHANGE_DELAY := 1.5
 ## Each must be a TileMapLayer node.
 func _load_levels(level_directory: String):
 	var level_regexp := RegEx.create_from_string("^\\d+.*\\.tscn$")
-	var scenes := ResourceFinder.list_scenes(level_directory).filter(func (filename: String): return level_regexp.search(filename))
+	var resources := Array(ResourceLoader.list_directory(level_directory))
+	var scenes := resources.filter(func (filename: String): return level_regexp.search(filename))
 	scenes.sort_custom(func (a: String, b: String): return a.naturalnocasecmp_to(b) < 0)
 
 	for scene_filename in scenes:
