@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://c2pdo2im2v8d1"]
 
-[ext_resource type="Script" path="res://Script/Explosion.gd" id="1_pw60x"]
+[ext_resource type="Script" uid="uid://bfjnwxwyql7th" path="res://Script/Explosion.gd" id="1_pw60x"]
 [ext_resource type="Texture2D" uid="uid://d24wavdwab2qx" path="res://Image/Explosion.png" id="2"]
 [ext_resource type="AudioStream" uid="uid://b31exg3ofm45k" path="res://Audio/Death.ogg" id="3"]
 
@@ -36,7 +36,7 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_o3l4t"]
 _data = {
-"Idle": SubResource("1")
+&"Idle": SubResource("1")
 }
 
 [node name="Explosion" type="Node2D"]

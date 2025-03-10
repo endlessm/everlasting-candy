@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=4 uid="uid://b27pqfbprnkl3"]
 
-[ext_resource type="Script" path="res://Script/Level.gd" id="1_u6drb"]
+[ext_resource type="Script" uid="uid://bg68lxn57p680" path="res://Script/Level.gd" id="1_u6drb"]
 [ext_resource type="TileSet" uid="uid://b2y6l0vol5q12" path="res://Worlds/Cgm-Dali/Assets/world_tile_set.tres" id="2_glpps"]
 [ext_resource type="PackedScene" uid="uid://31omv0fuw2at" path="res://Worlds/Cgm-Dali/Scenes/timer.tscn" id="3_6i85g"]
 

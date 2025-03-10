@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://d2ay7olsehadk"]
 
 [ext_resource type="Theme" uid="uid://dqt6eyc0l8kms" path="res://Theme/WorldSelector.tres" id="1_gll88"]
-[ext_resource type="Script" path="res://Script/WorldSelector/SettingsPage.gd" id="2_6mi7e"]
+[ext_resource type="Script" uid="uid://cgo0almmefowi" path="res://Script/WorldSelector/SettingsPage.gd" id="2_6mi7e"]
 
 [node name="SettingsPage" type="Control"]
 layout_mode = 3
