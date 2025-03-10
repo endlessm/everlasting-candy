@@ -58,7 +58,7 @@ func _instantiate_level():
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
-		get_tree().change_scene_to_file("res://Scene/WorldSelector.tscn")
+		SceneSwitcher.change_to_menu()
 
 func _process(_delta: float):
 	if Input.is_action_just_pressed("jump") and _level_scene.level_type != Level.LevelType.NORMAL:

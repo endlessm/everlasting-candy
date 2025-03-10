@@ -5,7 +5,7 @@ extends Control
 @onready var SettingsPage = $SettingsPage
 
 func _enter_world(world: String) -> void:
-	get_tree().change_scene_to_file(world)
+	SceneSwitcher.change_to_file(world)
 
 
 func _on_main_world_selected() -> void:
